@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "110342141493",
+    "project_id": "health-slayer",
+    "storage_bucket": "health-slayer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110342141493:android:ddb6a02b590cb0cdb5637c",
+        "android_client_info": {
+          "package_name": "ru.kirillisachenko.virusgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110342141493-duuhb69dsek4vsvgs3d2bk1937jncdd7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCSsNUZGA1sSmMjv7sY8_pwc5SdXbtFWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110342141493-duuhb69dsek4vsvgs3d2bk1937jncdd7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
