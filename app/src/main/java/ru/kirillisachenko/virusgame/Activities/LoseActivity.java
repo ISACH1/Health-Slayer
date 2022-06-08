@@ -25,6 +25,8 @@ import ru.kirillisachenko.virusgame.databinding.ActivityLoseBinding;
 public class LoseActivity extends AppCompatActivity {
     ActivityLoseBinding binding;
     ScoreDataStorage scoreDataStorage;
+    RealTimeDataBase realTimeDataBase;
+    Integer lastScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,38 +34,14 @@ public class LoseActivity extends AppCompatActivity {
 
         binding = ActivityLoseBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Toast.makeText(this, "Подождите идёт загрузка данных с сервера", Toast.LENGTH_SHORT).show();
         scoreDataStorage = new ScoreDataStorage(getApplicationContext());
-        RealTimeDataBase r = new RealTimeDataBase();
-        Integer lastScore = getIntent().getIntExtra("SCORE", 0);
-        final Integer[] HighestScore = {scoreDataStorage.getData()};
-        if(HighestScore[0] < lastScore) HighestScore[0] = lastScore;
-        binding.highestScore.setText(String.valueOf(HighestScore[0]));
+        realTimeDataBase = new RealTimeDataBase();
+        Integer HighestScore = scoreDataStorage.getData();
+        lastScore = getIntent().getIntExtra("SCORE", 0);
+        if (HighestScore == null) HighestScore = -1;
+        if (lastScore > HighestScore) scoreDataStorage.saveData(lastScore);
+        binding.highestScore.setText(String.valueOf(scoreDataStorage.getData()));
         binding.score.setText(String.valueOf(lastScore));
-        Integer finalHighestScore = HighestScore[0];
-        r.getScore(task -> {
-            Integer i;
-            if (task.getResult().getValue(Integer.class) == null) {
-                i = -1;
-                if (i > finalHighestScore){
-                    HighestScore[0] = i;
-                    r.writeScore(HighestScore[0]);
-                    binding.highestScore.setText(String.valueOf(i));
-                }
-                if (i < HighestScore[0]) r.writeScore(HighestScore[0]);
-            }
-            if(task.getResult().getValue(Integer.class) != null) {
-                i = task.getResult().getValue(Integer.class);
-                if (i > finalHighestScore){
-                    HighestScore[0] = i;
-                    r.writeScore(HighestScore[0]);
-                    binding.highestScore.setText(String.valueOf(i));
-                }
-                if (i < HighestScore[0]) r.writeScore(HighestScore[0]);
-            }
-            Toast.makeText(this, "Загрузка завершена", Toast.LENGTH_SHORT).show();
-            scoreDataStorage.saveData(HighestScore[0]);
-        });
         setButtons();
     }
 
@@ -75,6 +53,30 @@ public class LoseActivity extends AppCompatActivity {
         binding.maimMenu.setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
             finish();
+        });
+        binding.download.setOnClickListener(v -> {
+            final Integer[] HighestScore = {lastScore};
+            Integer finalHighestScore = HighestScore[0];
+            realTimeDataBase.getScore(task -> {
+                Integer i;
+                if (task.getResult().getValue(Integer.class) == null) {
+                    realTimeDataBase.writeScore(HighestScore[0]);
+                }
+                if(task.getResult().getValue(Integer.class) != null) {
+                    i = task.getResult().getValue(Integer.class);
+                    if (i > finalHighestScore){
+                        Toast.makeText(this, "Вам не удалось побить свой рекорд :(, текущий рекорд: " + i, Toast.LENGTH_SHORT).show();
+                        HighestScore[0] = i;
+                        realTimeDataBase.writeScore(HighestScore[0]);
+                        binding.highestScore.setText(String.valueOf(i));
+                    }
+                    if (i < HighestScore[0]) {
+                        realTimeDataBase.writeScore(HighestScore[0]);
+                        Toast.makeText(this, "Вы побили свой рекорд! Прошлый рекорд: " + i, Toast.LENGTH_SHORT).show();
+                    }
+                }
+                scoreDataStorage.saveData(HighestScore[0]); // TODO СОХРАНЯТЬ НА ТЕЛЕФОНЕ ТО ЧТО НА СЕРВЕРЕ ИЛИ НЕТ?
+            });
         });
     }
 }

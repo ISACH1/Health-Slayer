@@ -55,12 +55,23 @@
         <ImageButton
             android:layout_weight="1"
             android:backgroundTint="@color/background"
+            android:id="@+id/download"
+            android:src="@drawable/ic_download_svgrepo_com"
+            android:background="@color/background"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <ImageButton
+            android:layout_weight="1"
+            android:backgroundTint="@color/background"
             android:id="@+id/maim_menu"
             android:src="@drawable/ic_exit_svgrepo_com"
             android:background="@color/background"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
+
 
 
     </LinearLayout>

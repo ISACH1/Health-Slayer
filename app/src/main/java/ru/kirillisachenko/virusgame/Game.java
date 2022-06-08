@@ -83,10 +83,10 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
     public void setHero() {
         switch (type) {
             case (0):
-                hero = new ClassicVirus(getContext(), 0, 0, getWidth() / 13, joystick1);
+                hero = new ClassicVirus(getContext(), 4000, 4000, getWidth() / 13, joystick1);
                 break;
             case (1):
-                hero = new NinjaVirus(getContext(), 0, 0, getWidth() / 13, joystick1);
+                hero = new NinjaVirus(getContext(), 4000, 4000, getWidth() / 13, joystick1);
                 break;
         }
         healthBar = new HealthBar(0, 0, getWidth() / 20, getContext(), hero);
@@ -256,14 +256,14 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
         }
         for (Bullet bullet : heroBullets) {
             bullet.update();
-            if (room.getXPoint(1, 1) >= bullet.getxPosition() - bullet.getSize() || room.getYPoint(1, 1) >= bullet.getyPosition() - bullet.getSize()
-                    || room.getXPoint(98, 98) <= bullet.getxPosition() - bullet.getSize() || room.getYPoint(98, 98) <= bullet.getyPosition() - bullet.getSize())
+            if (0 >= bullet.getxPosition() - bullet.getSize() || 0 >= bullet.getyPosition() - bullet.getSize()
+                    || 10000 <= bullet.getxPosition() - bullet.getSize() || 10000 <= bullet.getyPosition() - bullet.getSize())
                 enemyBullets.remove(bullet);
         }
         for (Bullet bullet : enemyBullets) {
             bullet.update();
-            if (room.getXPoint(1, 1) >= bullet.getxPosition() - bullet.getSize() || room.getYPoint(1, 1) >= bullet.getyPosition() - bullet.getSize()
-                    || room.getXPoint(98, 98) <= bullet.getxPosition() - bullet.getSize() || room.getYPoint(98, 98) <= bullet.getyPosition() - bullet.getSize())
+            if (0 >= bullet.getxPosition() - bullet.getSize() || 0 >= bullet.getyPosition() - bullet.getSize()
+                    || 10000 <= bullet.getxPosition() - bullet.getSize() || 10000 <= bullet.getyPosition() - bullet.getSize())
                 enemyBullets.remove(bullet);
         }
         for (Enemy e : enemyArrayList) {

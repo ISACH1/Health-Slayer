@@ -19,6 +19,7 @@ public class CarouselRecyclerAdapter extends RecyclerView.Adapter<CarouselRecycl
     public CarouselRecyclerAdapter() {
         heroPNG = new ArrayList<>();
         heroPNG.add(R.drawable.virus_state);
+        heroPNG.add(R.drawable.ninja_state);
     }
 
     class MyHolder extends RecyclerView.ViewHolder {
