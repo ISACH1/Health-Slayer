@@ -20,7 +20,7 @@ import ru.kirillisachenko.virusgame.gameobjects.pane_doctor_package.PaneDoctorBu
 
 
 public class Doctor extends Enemy {
-    protected float bulletSpeed = 10f;
+    protected float bulletSpeed = 10f * 3;
 
     public Doctor(float xPosition, float yPosition, int size, Context context, Hero hero, boolean dropItem, float attackRange) {
         super(xPosition, yPosition, size, context, hero, dropItem, attackRange);

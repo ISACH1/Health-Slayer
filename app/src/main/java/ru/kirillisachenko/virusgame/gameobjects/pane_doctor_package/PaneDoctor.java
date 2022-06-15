@@ -17,7 +17,7 @@ import ru.kirillisachenko.virusgame.gameobjects.GameObject;
 import ru.kirillisachenko.virusgame.gameobjects.heropackage.Hero;
 
 public class PaneDoctor extends Enemy {
-    protected float bulletSpeed = 8f;
+    protected float bulletSpeed = 8f * 3;
 
     public PaneDoctor(float xPosition, float yPosition, int size, Context context, Hero hero, boolean dropItem, float attackRange) {
         super(xPosition, yPosition, size, context, hero, dropItem, attackRange);

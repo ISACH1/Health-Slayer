@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="healthBar">#801B1B</color>
-    <color name="background">#03213F</color>
+    <color name="background">#0004003E</color>
     <color name="textColor">#E9FCFF</color>
     <color name="button_sign_color">#920A4C</color>
     <color name="hint">#A1A1A1</color>

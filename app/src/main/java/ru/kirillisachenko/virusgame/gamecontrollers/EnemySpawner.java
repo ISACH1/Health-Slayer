@@ -50,7 +50,7 @@ public class EnemySpawner {
     }
 
     public void spawn() {
-        if ((waveNumber % 4) != 0) {
+        if ((waveNumber % 3) != 0) {
             for (int i = 0; i < numberOfEnemies; i++) {
                 int type = mathGenerator.getRandom(101, -1);
                 if (item) {

@@ -3,6 +3,7 @@ package ru.kirillisachenko.virusgame.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         authController = new AuthController();
         setButtons();
+        AnimationDrawable animationDrawable = (AnimationDrawable) binding.back.getBackground();
+        animationDrawable.start();
     }
 
     public void setButtons() {

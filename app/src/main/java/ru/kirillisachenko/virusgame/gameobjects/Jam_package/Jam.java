@@ -13,7 +13,7 @@ import ru.kirillisachenko.virusgame.gameobjects.Bullet;
 import ru.kirillisachenko.virusgame.gameobjects.heropackage.Hero;
 
 public class Jam extends Boss {
-    protected float bulletSpeed = 24f;
+    protected float bulletSpeed = 24f * 2;
 
     public Jam(float xPosition, float yPosition, int size, Context context, Hero hero, ArrayList<Bullet> bullets, boolean dropItem, float attackRange) {
         super(xPosition, yPosition, size, context, hero, bullets, dropItem, attackRange);

@@ -4,21 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@color/background"
+    android:background="@drawable/menu_back"
+    android:id="@+id/back"
     tools:context=".Activities.MainActivity">
     <LinearLayout
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/logout"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_margin="20dp"
-            android:background="@color/background"
-            android:src="@drawable/ic_logout" />
 
         <TextView
             android:id="@+id/user_email"
@@ -28,6 +23,16 @@
             android:textColor="@color/textColor"
             android:textSize="25sp"
             tools:text="example@gmail.com" />
+
+        <ImageButton
+            android:id="@+id/logout"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_margin="20dp"
+            android:background="@color/background"
+            android:src="@drawable/ic_logout" />
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -35,21 +40,25 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:orientation="horizontal"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        >
 
         <ImageButton
+            android:layout_margin="25dp"
             android:id="@+id/start"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@color/background"
             android:src="@drawable/play_button" />
         <ImageButton
+            android:layout_margin="25dp"
         android:id="@+id/authors"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@color/background"
         android:src="@drawable/ic_writing_svgrepo_com" />
         <ImageButton
+            android:layout_margin="25dp"
             android:id="@+id/exit"
             android:layout_width="100dp"
             android:layout_height="100dp"

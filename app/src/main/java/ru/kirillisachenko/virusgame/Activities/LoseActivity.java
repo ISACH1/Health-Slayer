@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -42,6 +43,8 @@ public class LoseActivity extends AppCompatActivity {
         if (lastScore > HighestScore) scoreDataStorage.saveData(lastScore);
         binding.highestScore.setText(String.valueOf(scoreDataStorage.getData()));
         binding.score.setText(String.valueOf(lastScore));
+        AnimationDrawable animationDrawable = (AnimationDrawable) binding.back.getBackground();
+        animationDrawable.start();
         setButtons();
     }
 
