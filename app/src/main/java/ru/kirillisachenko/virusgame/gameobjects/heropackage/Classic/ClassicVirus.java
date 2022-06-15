@@ -17,7 +17,7 @@ public class ClassicVirus extends Hero {
         Model[1] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.virus2), size,size,false);
         Model[2] = Model[0];
         bulletSpeed = 17f * 3;
-        speed = 10f;
+        speed = 17f;
         AbilityKD = 20 * 1000;
         attackSpeed = 2000;
         setMaxHealthPoint(5);

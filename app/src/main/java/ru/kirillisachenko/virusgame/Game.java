@@ -82,10 +82,10 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
 
     public void setHero() {
         switch (type) {
-            case (0):
+            case (1):
                 hero = new ClassicVirus(getContext(), 4000, 4000, getWidth() / 13, joystick1);
                 break;
-            case (1):
+            case (0):
                 hero = new NinjaVirus(getContext(), 4000, 4000, getWidth() / 13, joystick1);
                 break;
         }
